@@ -30,6 +30,13 @@ public class CheckedProject extends Request implements CrudInterface {
                 .extract().as(Project.class);
     }
 
+    public Project getByName(String name) {
+        return new UncheckedProject(spec)
+                .get(name)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().as(Project.class);
+    }
+
     @Override
     public Object update(Object object) {
         return null;

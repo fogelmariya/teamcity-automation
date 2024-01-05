@@ -27,6 +27,10 @@ public class UncheckedProject extends Request implements CrudInterface {
         return given().spec(spec).get(PROJECT_ENDPOINT + "/id:" + id);
     }
 
+    public Response getByName(String name) {
+        return given().spec(spec).get(PROJECT_ENDPOINT + "/name:" + name);
+    }
+
     @Override
     public Object update(Object object) {
         return null;
